@@ -1,7 +1,14 @@
-.main_checkbox {
-  margin-left: 0;
+.main {
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  padding: 20px;
+  border: 2px solid #737892;
+  border-radius: 8px;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: space-between;
 }
-
-.main_box {
-  flex-grow: 1;
+.delete {
+  cursor: pointer;
 }
