@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
     <div className="navbar">
       <h1>TODO LIST</h1>
       <div className="items">
-        <div className="navbar_button">
+        <div className="addtask_button">
           <Button variant="contained" color="primary">
             Add Task
           </Button>
