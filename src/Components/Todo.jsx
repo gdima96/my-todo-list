@@ -14,8 +14,12 @@ const Todo = () => {
       setList([...list, task]);
       setTask('');
     }
+  };
+  // console.log(list);
 
-    console.log([...list]);
+  const deleteTask = (taskIndex) => {
+    const newList = list.filter((_, index) => index !== taskIndex);
+    setList(newList);
   };
 
   return (
@@ -37,10 +41,13 @@ const Todo = () => {
       <div className="lists">
         {list.map((task, index) => {
           return (
-            <div key={index} className="Alllists">
+            <div key={index} className="allLists">
               <input type="checkbox" name="" id="" />
               <input type="text" readOnly value={task} />
-              <MdDeleteOutline className="delete-icon" />
+              <MdDeleteOutline
+                className="delete-icon"
+                onClick={() => deleteTask(index)}
+              />
             </div>
           );
         })}
