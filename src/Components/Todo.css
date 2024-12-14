@@ -1,0 +1,106 @@
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 2px solid white;
+  background-color: white;
+  width: 35%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 20px;
+  gap: 20px;
+  /* overflow-y: auto; */
+}
+.main-header {
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.todo-icon {
+  font-size: 34px;
+  margin-right: 20px;
+  margin-top: 8px;
+  color: rgb(55, 82, 124);
+  /* flex-shrink: 0; */
+}
+.main h1 {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.task input {
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid rgb(55, 82, 124);
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+
+  /* box-sizing: border-box; */
+}
+
+.add-icon {
+  font-size: 34px;
+  color: rgb(55, 82, 124);
+  padding-left: 10px;
+  cursor: pointer;
+  justify-content: flex-end;
+}
+
+.allLists {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(216, 218, 221);
+  border-radius: 5px;
+  font-size: 20px;
+  gap: 200px;
+}
+
+.allLists input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.allLists input {
+  border: none;
+  outline: none;
+}
+.delete-icon {
+  font-size: 28px;
+  color: rgb(55, 82, 124);
+  cursor: pointer;
+}
+
+.main hr {
+  width: 90%;
+  border: none;
+  border-radius: 10px;
+  height: 1px;
+  background: #c7c7c7;
+}
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.summary p {
+  margin: 0;
+}
