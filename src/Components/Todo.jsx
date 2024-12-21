@@ -8,18 +8,28 @@ import { TbPointFilled } from 'react-icons/tb';
 const Todo = () => {
   const [task, setTask] = useState('');
   const [list, setList] = useState([]);
+  const [todo, setTodo] = useState(0);
+  // const [completed, setCompleted] = useState(0);
+
+  const todoCount =(action)=>{
+if( action === 'add'){setTodo(todo+1)}
+else if( action === 'delete' && todo >0 ) {setTodo(todo-1)}
+
+  }
 
   const addTask = () => {
     if (task.trim() != '') {
       setList([...list, task]);
       setTask('');
     }
+    todoCount('add')
   };
   // console.log(list);
 
   const deleteTask = (taskIndex) => {
     const newList = list.filter((_, index) => index !== taskIndex);
     setList(newList);
+    todoCount('delete')
   };
 
   return (
@@ -54,7 +64,7 @@ const Todo = () => {
       </div>
       <hr />
       <div className="summary">
-        <p>0 todo</p>
+        <p>{todo} todo</p>
         <TbPointFilled />
         <p>0 completed</p>
       </div>
