@@ -9,13 +9,16 @@ const Todo = () => {
   const [task, setTask] = useState('');
   const [list, setList] = useState([]);
   const [todo, setTodo] = useState(0);
-  // const [completed, setCompleted] = useState(0);
+  const [completed, setCompleted] = useState(0);
 
   const todoCount =(action)=>{
 if( action === 'add'){setTodo(todo+1)}
 else if( action === 'delete' && todo >0 ) {setTodo(todo-1)}
-
   }
+  const completedCount =(action)=>{
+    if( action === 'add'){setCompleted(completed+1)}
+    else if( action === 'remove' && completed >0 ) {setCompleted(completed-1)}
+      }
 
   const addTask = () => {
     if (task.trim() != '') {
@@ -24,12 +27,18 @@ else if( action === 'delete' && todo >0 ) {setTodo(todo-1)}
     }
     todoCount('add')
   };
+
+  const markCompleted=()=>{
+    completedCount('add')
+    // mark uncompleted should result to decreasing completed counter ???
+  }
   // console.log(list);
 
   const deleteTask = (taskIndex) => {
     const newList = list.filter((_, index) => index !== taskIndex);
     setList(newList);
     todoCount('delete')
+    completedCount('remove')
   };
 
   return (
@@ -52,11 +61,12 @@ else if( action === 'delete' && todo >0 ) {setTodo(todo-1)}
         {list.map((task, index) => {
           return (
             <div key={index} className="allLists">
-              <input type="checkbox" name="" id="" />
+              <input type="checkbox" name="" id="" onClick={markCompleted} />
               <input type="text" readOnly value={task} />
               <MdDeleteOutline
                 className="delete-icon"
                 onClick={() => deleteTask(index)}
+                // Find solution: checkmark doesn't dissapear once the task is deleted. Suggestion: Task ID ?????
               />
             </div>
           );
@@ -66,7 +76,7 @@ else if( action === 'delete' && todo >0 ) {setTodo(todo-1)}
       <div className="summary">
         <p>{todo} todo</p>
         <TbPointFilled />
-        <p>0 completed</p>
+        <p>{completed} completed</p>
       </div>
     </div>
   );
